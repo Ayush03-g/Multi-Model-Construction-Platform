@@ -1,4 +1,4 @@
-# Multimodal Construction Intelligence Platform 🏗️📐🦺
+# Multimodal Construction Intelligence Platform
 
 [![Python Version](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.38%2B-FF4B4B.svg)](https://streamlit.io/)
@@ -13,7 +13,7 @@
 
 ---
 
-## 🎯 Executive Summary & Scope
+## Executive Summary & Scope
 
 The **Multimodal Construction Intelligence Platform** is an enterprise-grade AI decision-support system tailored for civil engineers, site safety officers (EHS), project directors, and real estate developers. By harmonizing Google Gemini multimodal vision, CPWD material consumption benchmarks, Indian Standard civil codes (**IS 456:2000**, **IS 13920**, **IS 2925**, **IS 3521**), and US **OSHA 1926** safety standards, the platform provides automated, auditable decision support across the entire construction lifecycle.
 
@@ -21,21 +21,21 @@ The system requires **zero external database dependencies** and features an inte
 
 ---
 
-## 🗺️ Kanban Epics Implementation
+## Kanban Epics Implementation
 
 | Epic | Designation | Implemented Modules & Deliverables | Verification Status |
 | :--- | :--- | :--- | :--- |
-| **Prerequisites** | Core Stack | Python 3.9+, Streamlit, FastAPI-ready modular structure | ✅ Passed |
-| **Epic 1** | Requirements & Env | `requirements.txt`, `.env.example`, `.gitignore`, `pytest` test suite | ✅ Passed |
-| **Epic 2** | PPE Vision & Crack Triage | Multimodal PPE compliance audit (OSHA/IS 456), defect classification (width, severity, repairs) | ✅ Passed |
-| **Epic 3** | Planning & INR Valuation | Built-up sqft, Indian city tiers, Lakhs/Crores valuation, steel/cement metrics, Pollinations AI 3D rendering | ✅ Passed |
-| **Epic 4** | Multimodal AI & JSON Contracts | Strict JSON schemas, programmatic validation, raw JSON viewer, downloadable reports | ✅ Passed |
-| **Epic 5** | Site Chatbot & Weather Advisory | Dynamic climatic protocols (crane suspension, curing), multi-turn engineering chatbot | ✅ Passed |
-| **Epic 6** | UI, Testing & Cloud Deployment | High-tech dark/amber theme, comprehensive Pytest suite, 1-Click Streamlit Cloud ready | ✅ Passed |
+| **Prerequisites** | Core Stack | Python 3.9+, Streamlit, FastAPI-ready modular structure | Passed |
+| **Epic 1** | Requirements & Env | `requirements.txt`, `.env.example`, `.gitignore`, `pytest` test suite | Passed |
+| **Epic 2** | PPE Vision & Crack Triage | Multimodal PPE compliance audit (OSHA/IS 456), defect classification (width, severity, repairs) | Passed |
+| **Epic 3** | Planning & INR Valuation | Built-up sqft, Indian city tiers, Lakhs/Crores valuation, steel/cement metrics, Pollinations AI 3D rendering | Passed |
+| **Epic 4** | Multimodal AI & JSON Contracts | Strict JSON schemas, programmatic validation, raw JSON viewer, downloadable reports | Passed |
+| **Epic 5** | Site Chatbot & Weather Advisory | Dynamic climatic protocols (crane suspension, curing), multi-turn engineering chatbot | Passed |
+| **Epic 6** | UI, Testing & Cloud Deployment | Clean CSS theme, comprehensive Pytest suite, 1-Click Streamlit Cloud ready | Passed |
 
 ---
 
-## 🏛️ System Architecture
+## System Architecture
 
 ```mermaid
 flowchart TD
@@ -75,42 +75,42 @@ flowchart TD
 
 ---
 
-## 🚀 Key Modules & Capabilities
+## Key Modules & Capabilities
 
-### 🦺 1. Site Safety & Worker PPE Audit (Epic 2 & 4)
+### 1. Site Safety & Worker PPE Audit (Epic 2 & 4)
 - **Surveillance Analysis:** Scans site photos for hard hats, high-visibility vests, steel-toe boots, and fall protection harnesses.
 - **Regulatory Framework:** Evaluates hazards under **OSHA 1926 (Subparts E, M)** and Indian Standards (**IS 2925:1984**, **IS 3521:1999**, **IS 15298:2016**).
 - **Hazard Remediation Matrix:** Automatically tags severity levels (*Low, Medium, High, Critical*) with step-by-step engineering remedies and standard citations.
 - **Exportable Contract:** Instant download of `safety_audit_report.json`.
 
-### 🧱 2. Concrete Crack Diagnostics & Structural Integrity (Epic 2 & 4)
+### 2. Concrete Crack Diagnostics & Structural Integrity (Epic 2 & 4)
 - **Defect Typology:** Classifies concrete flaws into *Hairline*, *Settlement*, *Structural Shear*, *Thermal Expansion*, and *Spalling & Corrosion*.
 - **Forensic Quantometrics:** Estimates crack width in millimeters (mm) and cross-checks against **IS 456:2000 Cl. 35.3.2** (maximum 0.3mm for moderate environmental exposure).
 - **Remediation Blueprints:** Proposes targeted rehabilitation methods (low-viscosity epoxy pressure injection, CFRP composite laminates, micro-concrete re-profiling, tell-tale glass monitors).
 - **NDT Recommendations:** Cites specific Non-Destructive Testing protocols (Ultrasonic Pulse Velocity IS 13311 Pt 1, Rebound Hammer Pt 2, Half-Cell Potential ASTM C876).
 
-### 📐 3. Project Planning, Material Estimation & Real Estate Valuation (Epic 3 & 4)
+### 3. Project Planning, Material Estimation & Real Estate Valuation (Epic 3 & 4)
 - **Indian City Tier Modeling:** Calibrated base construction rates across Tier 1 (Mumbai, Bengaluru, Delhi-NCR), Tier 2 (Pune, Ahmedabad, Kochi), and Tier 3 cities.
 - **INR Denomination Formatting:** Automatic representation in Indian currency units:
-  - `< ₹1,00,000`: `₹XX,XXX`
-  - `₹1,00,000` to `₹99,99,999`: `₹XX.XX Lakhs`
-  - `≥ ₹1,00,00,000`: `₹XX.XX Crores`
+  - `< INR 1,00,000`: `INR XX,XXX`
+  - `INR 1,00,000` to `INR 99,99,999`: `INR XX.XX Lakhs`
+  - `>= INR 1,00,00,000`: `INR XX.XX Crores`
 - **CPWD Structural Material Estimations:**
   - **TMT Steel (Fe 500D):** Calculated in Kilograms, Metric Tonnes (MT), and Quintals.
   - **Cement (OPC 53 / PPC):** Calculated in Standard 50-kg Bags and Metric Tonnes.
 - **Milestone Progress Tracker:** Visual phase milestones from Substructure Foundation to Superstructure, MEP, Finishes, and Handover.
 - **Conceptual 3D Architectural Rendering:** Directly generates photorealistic concept visualizations via **Pollinations AI / Flux engine** with custom styling (Biophilic, Contemporary Indian, Brutalist, PEB Logistics).
 
-### 🌦️ 4. Daily Site Assistant & Weather-Aware Advisory (Epic 5)
+### 4. Daily Site Assistant & Weather-Aware Advisory (Epic 5)
 - **Dynamic Climatic Protocols:** Immediate safety procedures responding to:
   - **High Wind (> 38 km/h / 24 mph):** Mandatory tower crane shutdown, boom freewheeling weathervane mode (OSHA 1926.1431 / IS 4573).
   - **Heavy Rain / Monsoon:** De-energizing distribution boards, 30mA RCCB verification, and concrete pour suspension (IS 456 Cl. 13.3).
-  - **Extreme Heat (> 40°C):** Chilled water/ice batching, night pour scheduling, and OSHA heat stress work-rest rotation.
+  - **Extreme Heat (> 40 C):** Chilled water/ice batching, night pour scheduling, and OSHA heat stress work-rest rotation.
 - **Multi-turn Construction Assistant:** Persistent session chatbot answering technical queries on concrete curing times, stripping durations, slump testing, and seismic detailing.
 
 ---
 
-## 📦 Directory Structure
+## Directory Structure
 
 ```
 Multimodal_Construction_Intelligence_Platform/
@@ -140,7 +140,7 @@ Multimodal_Construction_Intelligence_Platform/
 
 ---
 
-## ⚡ Quickstart Guide
+## Quickstart Guide
 
 ### 1. Clone the Repository
 ```bash
@@ -180,12 +180,12 @@ Open your browser at `http://localhost:8501`.
 
 ---
 
-## 🔑 Gemini API Key Configuration
+## Gemini API Key Configuration
 
 The platform operates in **Demonstration Mode** out-of-the-box without requiring any credentials.
 
 To enable live multimodal computer vision:
-1. Obtain an API key from [Google AI Studio](https://aistudio.google.com/).
+1. Obtain an API key from Google AI Studio (https://aistudio.google.com/).
 2. Either:
    - **Method A:** Paste the key into the **Sidebar** password field at runtime.
    - **Method B:** Create a `.env` file in the project root:
@@ -197,7 +197,7 @@ To enable live multimodal computer vision:
 
 ---
 
-## ☁️ 1-Click Deployment to Streamlit Community Cloud
+## 1-Click Deployment to Streamlit Community Cloud
 
 1. Push this repository to your GitHub account:
    ```bash
@@ -208,7 +208,7 @@ To enable live multimodal computer vision:
    git remote add origin https://github.com/<your-username>/Multimodal_Construction_Intelligence_Platform.git
    git push -u origin main
    ```
-2. Navigate to [share.streamlit.io](https://share.streamlit.io/).
+2. Navigate to https://share.streamlit.io/
 3. Select your repository, set the branch to `main`, and main file path to `app.py`.
 4. (Optional) Under **Advanced Settings > Secrets**, add:
    ```toml
@@ -218,7 +218,7 @@ To enable live multimodal computer vision:
 
 ---
 
-## 📑 JSON Data Contracts (Epic 4 Reference)
+## JSON Data Contracts (Epic 4 Reference)
 
 ### Tab 1 Safety Audit Contract
 ```json
@@ -256,13 +256,13 @@ To enable live multimodal computer vision:
 
 ---
 
-## ⚖️ Engineering Disclaimer
+## Engineering Disclaimer
 
 This application is designed as an intelligent preliminary decision-support tool. Automated vision assessments and statistical planning estimations do not replace a physical inspection conducted by a licensed Structural Engineer, Chartered Quantity Surveyor, or certified Environmental Health and Safety (EHS) Officer. Curing, stripping, and safety protocols must be validated against local building bye-laws and structural contract drawings.
 
 ---
 
-## 👨‍💻 Author & Credits
+## Author & Credits
 
 - **Skill Wallet Capstone Project 1**
 - **Platform ID:** `6ac4c98d1dcde6d7857c1642`

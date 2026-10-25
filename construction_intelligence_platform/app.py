@@ -56,10 +56,10 @@ from modules.weather_assistant import (
     query_engineering_assistant,
 )
 
-# Page Configuration
+# Page Configuration (Emoji-free)
 st.set_page_config(
     page_title="Multimodal Construction Intelligence Platform",
-    page_icon="🏗️",
+    page_icon=None,
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -226,7 +226,7 @@ def load_image_safely(file_or_path) -> Optional[Image.Image]:
         return None
 
 
-def export_json_button(data: Dict[str, Any], filename: str, label: str = "📥 Download JSON Report"):
+def export_json_button(data: Dict[str, Any], filename: str, label: str = "Download JSON Report"):
     """Render a clean Streamlit JSON download button."""
     json_bytes = json.dumps(data, indent=2, ensure_ascii=False)
     st.download_button(
@@ -245,7 +245,6 @@ with st.sidebar:
     st.markdown(
         """
         <div style="text-align: center; padding-bottom: 0.8rem;">
-            <div style="font-size: 2.2rem;">🏗️ 📐 🦺</div>
             <h2 style="margin: 0.2rem 0; font-size: 1.25rem; font-weight: 800;">Construction Intelligence</h2>
             <span style="font-size: 0.78rem; color: #94a3b8; font-family: monospace;">ID: 6ac4c98d1dcde6d7857c1642</span>
         </div>
@@ -253,7 +252,7 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
 
-    st.markdown("### ⚙️ AI Engine Settings")
+    st.markdown("### AI Engine Settings")
     provider_choice = st.selectbox(
         "Execution Engine",
         [DEMO_MODE, GEMINI_MODE],
@@ -275,16 +274,16 @@ with st.sidebar:
         )
         selected_model = st.selectbox("Vision & Chat Model", SUPPORTED_MODELS, index=0)
         if not api_key_input:
-            st.warning("⚠️ No key supplied. Falling back gracefully to demonstration mode.")
+            st.warning("No key supplied. Falling back gracefully to demonstration mode.")
     else:
-        st.info("💡 **Demo Mode Active**: Testing with pre-validated engineering contracts and local knowledge graph.")
+        st.info("Demo Mode Active: Testing with pre-validated engineering contracts and local knowledge graph.")
 
     st.session_state["api_key"] = api_key_input
     st.session_state["provider"] = provider_choice
     st.session_state["selected_model"] = selected_model
 
     st.markdown("---")
-    st.markdown("### 📋 Platform Epics Coverage")
+    st.markdown("### Platform Epics Coverage")
     with st.expander("Kanban Epics (1 to 6)", expanded=False):
         st.markdown(
             """
@@ -297,7 +296,7 @@ with st.sidebar:
             """
         )
 
-    st.markdown("### 📚 Standards Compliance")
+    st.markdown("### Standards Compliance")
     with st.expander("Governing Codes", expanded=False):
         st.markdown(
             """
@@ -319,17 +318,17 @@ st.markdown(
     f"""
     <div class="hero-banner">
         <div class="hero-title">
-            <span>🏗️</span> Multimodal Construction Intelligence Platform
+            Multimodal Construction Intelligence Platform
         </div>
         <div class="hero-subtitle">
             Autonomous site safety auditing, concrete crack forensic triage, CPWD material planning, INR real estate valuation, and dynamic weather advisory.
         </div>
         <div class="hero-pills">
-            <span class="hero-pill">🆔 Platform ID: {PLATFORM_ID}</span>
-            <span class="hero-pill">🏷️ Generative AI | Real Estate Support</span>
-            <span class="hero-pill">⚡ Engine: {provider_choice.split()[0]}</span>
-            <span class="hero-pill">🇮🇳 Currency: INR (Lakhs & Crores)</span>
-            <span class="hero-pill">📐 Codes: OSHA 1926 & IS 456:2000</span>
+            <span class="hero-pill">Platform ID: {PLATFORM_ID}</span>
+            <span class="hero-pill">Generative AI | Real Estate Support</span>
+            <span class="hero-pill">Engine: {provider_choice.split()[0]}</span>
+            <span class="hero-pill">Currency: INR (Lakhs & Crores)</span>
+            <span class="hero-pill">Codes: OSHA 1926 & IS 456:2000</span>
         </div>
     </div>
     """,
@@ -337,15 +336,15 @@ st.markdown(
 )
 
 # -------------------------------------------------------------
-# CORE APPLICATION TABS
+# CORE APPLICATION TABS (Emoji-free)
 # -------------------------------------------------------------
 tab_safety, tab_cracks, tab_planning, tab_weather, tab_architecture = st.tabs(
     [
-        "🦺 Tab 1: Site Safety & PPE Audit",
-        "🧱 Tab 2: Crack Diagnostics",
-        "📐 Tab 3: Planning & Valuation",
-        "🌦️ Tab 4: Daily Site Assistant & Weather Advisory",
-        "🏛️ Tab 5: Architecture & Data Contracts",
+        "Tab 1: Site Safety & PPE Audit",
+        "Tab 2: Crack Diagnostics",
+        "Tab 3: Planning & Valuation",
+        "Tab 4: Daily Site Assistant & Weather Advisory",
+        "Tab 5: Architecture & Data Contracts",
     ]
 )
 
@@ -354,7 +353,7 @@ tab_safety, tab_cracks, tab_planning, tab_weather, tab_architecture = st.tabs(
 # TAB 1: SITE SAFETY & PPE AUDIT (EPIC 2 & EPIC 4)
 # =============================================================
 with tab_safety:
-    st.subheader("🦺 Site Safety & Worker PPE Compliance Audit (OSHA 1926 & IS 456)")
+    st.subheader("Site Safety & Worker PPE Compliance Audit (OSHA 1926 & IS 456)")
     st.markdown(
         "Upload site surveillance photos to evaluate hard hats, high-visibility apparel, steel-toe footwear, "
         "and fall arrest harnesses against **OSHA 1926 (Subparts E, M)** and **IS 2925 / IS 3521** specifications."
@@ -368,14 +367,14 @@ with tab_safety:
             key="safety_uploader",
         )
     with col_action:
-        st.markdown("**1-Click Quick Demo Presets:**")
+        st.markdown("**Quick Demo Presets:**")
         preset_choice = st.radio(
             "Demonstration Scenario:",
             ["Compliant Structural Site", "High-Risk Perimeter Workzone"],
             index=0,
             horizontal=True,
         )
-        use_sample = st.button("🖼️ Load Sample Site Photo", use_container_width=True)
+        use_sample = st.button("Load Sample Site Photo", use_container_width=True)
 
     # Resolve active image
     active_safety_img = None
@@ -397,7 +396,7 @@ with tab_safety:
         with c2:
             st.markdown("#### Inspection Trigger")
             st.write("Execute multimodal visual parsing for personal protective equipment and active site hazards.")
-            run_audit = st.button("🔍 Execute Safety & PPE Audit", type="primary", use_container_width=True)
+            run_audit = st.button("Execute Safety & PPE Audit", type="primary", use_container_width=True)
 
             if run_audit or "safety_audit_result" not in st.session_state:
                 with st.spinner("Analyzing site imagery against OSHA & IS standards..."):
@@ -422,11 +421,11 @@ with tab_safety:
                 # Status pill indicator
                 status_str = res.get("overall_status", "Review Required")
                 if "Compliant" in status_str and "Critical" not in status_str and "Non" not in status_str:
-                    badge_html = f"<span class='badge-pass'>✓ {status_str}</span>"
+                    badge_html = f"<span class='badge-pass'>[PASS] {status_str}</span>"
                 elif "Non-Compliance" in status_str or "Critical" in status_str:
-                    badge_html = f"<span class='badge-fail'>⚠️ {status_str}</span>"
+                    badge_html = f"<span class='badge-fail'>[CRITICAL] {status_str}</span>"
                 else:
-                    badge_html = f"<span class='badge-warn'>⚡ {status_str}</span>"
+                    badge_html = f"<span class='badge-warn'>[REVIEW] {status_str}</span>"
 
                 st.markdown(f"**Overall Compliance:** {badge_html}", unsafe_allow_html=True)
                 st.progress(score / 100.0, text=f"Safety Index Score: {score}/100")
@@ -442,9 +441,9 @@ with tab_safety:
         m3.metric("Workers Identified", res.get("worker_count_estimate", "1+"))
         m4.metric("Hazards Flagged", len(res.get("identified_hazards", [])))
 
-        st.info(f"📋 **Executive Summary:** {res.get('compliance_summary', 'Audit executed.')}")
+        st.info(f"**Executive Summary:** {res.get('compliance_summary', 'Audit executed.')}")
 
-        st.markdown("### 🦺 Personal Protective Equipment (PPE) Checklist")
+        st.markdown("### Personal Protective Equipment (PPE) Checklist")
         ppe_list = res.get("ppe_detection", [])
         if ppe_list:
             df_ppe = pd.DataFrame(ppe_list)
@@ -452,7 +451,7 @@ with tab_safety:
             cols_order = [c for c in ["item", "status", "standard_ref", "risk_level", "observation"] if c in df_ppe.columns]
             st.dataframe(df_ppe[cols_order], use_container_width=True, hide_index=True)
 
-        st.markdown("### ⚠️ Identified Site Hazards & Corrective Engineering Remedies")
+        st.markdown("### Identified Site Hazards & Corrective Engineering Remedies")
         hazards = res.get("identified_hazards", [])
         if hazards:
             for idx, h in enumerate(hazards):
@@ -471,13 +470,13 @@ with tab_safety:
                     <div style="background: #1e293b; border-left: 5px solid {border_color}; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; border: 1px solid #334155; border-left: 5px solid {border_color};">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
                             <strong style="color: #f8fafc; font-size: 1.05rem;">{idx+1}. {cat}: {desc}</strong>
-                            <span class="{badge_class}">{severity.upper()}</span>
+                            <span class="{badge_class}">[{severity.upper()}]</span>
                         </div>
                         <div style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 8px;">
-                            <span>📚 <b>Standard Citations:</b> {osha_ref} | {is_ref}</span>
+                            <span><b>Standard Citations:</b> {osha_ref} | {is_ref}</span>
                         </div>
                         <div style="background: rgba(15, 23, 42, 0.6); padding: 8px 12px; border-radius: 6px; color: #e2e8f0; font-size: 0.9rem;">
-                            <b>🛠️ Actionable Remedy:</b> {remedy}
+                            <b>Actionable Remedy:</b> {remedy}
                         </div>
                     </div>
                     """,
@@ -491,7 +490,7 @@ with tab_safety:
         with col_dl:
             export_json_button(res, f"safety_audit_report_{PLATFORM_ID}.json")
         with col_raw:
-            with st.expander("🔍 View Raw JSON Contract (Epic 4)", expanded=False):
+            with st.expander("View Raw JSON Contract (Epic 4)", expanded=False):
                 st.json(res)
 
 
@@ -499,7 +498,7 @@ with tab_safety:
 # TAB 2: CRACK DIAGNOSTICS & STRUCTURAL INTEGRITY (EPIC 2 & 4)
 # =============================================================
 with tab_cracks:
-    st.subheader("🧱 Concrete Crack Diagnostics & Structural Integrity (IS 456 / ACI 224R)")
+    st.subheader("Concrete Crack Diagnostics & Structural Integrity (IS 456 / ACI 224R)")
     st.markdown(
         "Upload high-resolution concrete or masonry surface photos to classify defect typology "
         "(Hairline, Settlement, Structural Shear, Thermal Expansion, Spalling), estimate width (mm), "
@@ -518,13 +517,13 @@ with tab_cracks:
             placeholder="e.g. RCC transfer girder at Basement 1, age 4 years, observed after formwork de-shuttering",
         )
     with c_c2:
-        st.markdown("**1-Click Sample Crack Defects:**")
+        st.markdown("**Sample Crack Defects:**")
         sample_defect_preset = st.radio(
             "Defect Archetype:",
             ["Structural Shear Crack (Beam)", "Concrete Spalling & Corroded Rebar", "Hairline Plaster Curing Crack"],
             index=0,
         )
-        load_crack_sample = st.button("🖼️ Load Sample Crack Photo", use_container_width=True)
+        load_crack_sample = st.button("Load Sample Crack Photo", use_container_width=True)
 
     active_crack_img = None
     if load_crack_sample:
@@ -551,7 +550,7 @@ with tab_cracks:
         with c2:
             st.markdown("#### Diagnostic Execution")
             st.write("Run forensic evaluation for crack width, root cause isolation, and repair protocols.")
-            run_crack = st.button("🔬 Perform Crack & Structural Diagnostic", type="primary", use_container_width=True)
+            run_crack = st.button("Perform Crack & Structural Diagnostic", type="primary", use_container_width=True)
 
             if run_crack or "crack_diagnostic_result" not in st.session_state:
                 with st.spinner("Classifying structural failure modes & crack propagation..."):
@@ -597,36 +596,36 @@ with tab_cracks:
         # IS 456:2000 Compliance Banner
         is_stat = c_res.get("is_456_compliance_status", "Review required")
         if "Non-Compliance" in is_stat or "Exceeds" in is_stat:
-            st.error(f"⚠️ **IS 456:2000 Durability Compliance (Cl. 35.3.2):** {is_stat}")
+            st.error(f"IS 456:2000 Durability Compliance (Cl. 35.3.2): {is_stat}")
         else:
-            st.success(f"✓ **IS 456:2000 Durability Compliance (Cl. 35.3.2):** {is_stat}")
+            st.success(f"IS 456:2000 Durability Compliance (Cl. 35.3.2): {is_stat}")
 
         col_left, col_right = st.columns(2)
         with col_left:
-            st.markdown("#### 🔬 Root Cause Analysis")
+            st.markdown("#### Root Cause Analysis")
             for rc in c_res.get("root_causes", []):
-                st.markdown(f"- 🔴 **Cause:** {rc}")
+                st.markdown(f"- **Cause:** {rc}")
 
-            st.markdown("#### 📐 Crack Pattern & Morphology")
+            st.markdown("#### Crack Pattern & Morphology")
             st.info(f"**Visual Pattern:** {c_res.get('crack_orientation_pattern', 'Not specified')}")
 
         with col_right:
-            st.markdown("#### 🛠️ Recommended Engineering Repairs")
+            st.markdown("#### Recommended Engineering Repairs")
             for idx, rep in enumerate(c_res.get("recommended_engineering_repairs", [])):
                 st.markdown(f"**Step {idx+1}:** {rep}")
 
-            st.markdown("#### 🧪 Non-Destructive Testing (NDT) Advised")
+            st.markdown("#### Non-Destructive Testing (NDT) Advised")
             for ndt in c_res.get("non_destructive_testing_advised", []):
-                st.markdown(f"- 🧪 {ndt}")
+                st.markdown(f"- {ndt}")
 
         if c_res.get("engineer_escalation_protocol"):
-            st.warning(f"🚨 **Escalation Protocol:** {c_res['engineer_escalation_protocol']}")
+            st.warning(f"**Escalation Protocol:** {c_res['engineer_escalation_protocol']}")
 
         col_dl, col_raw = st.columns([1, 1])
         with col_dl:
             export_json_button(c_res, f"crack_diagnostic_report_{PLATFORM_ID}.json")
         with col_raw:
-            with st.expander("🔍 View Raw JSON Contract (Epic 4)", expanded=False):
+            with st.expander("View Raw JSON Contract (Epic 4)", expanded=False):
                 st.json(c_res)
 
 
@@ -634,7 +633,7 @@ with tab_cracks:
 # TAB 3: PLANNING, INR VALUATION & 3D RENDERING (EPIC 3 & 4)
 # =============================================================
 with tab_planning:
-    st.subheader("📐 Project Planning, Material Estimation & Real Estate Valuation (INR)")
+    st.subheader("Project Planning, Material Estimation & Real Estate Valuation (INR)")
     st.markdown(
         "Interactive cost engineering, capital expenditure tracking, asset market valuation, "
         "and material consumption benchmarks (TMT Steel & Cement) calibrated to Indian CPWD standards."
@@ -682,7 +681,7 @@ with tab_planning:
                 step=1,
             )
 
-        submit_plan = st.form_submit_button("📊 Compute Project Plan & Asset Valuation", type="primary", use_container_width=True)
+        submit_plan = st.form_submit_button("Compute Project Plan & Asset Valuation", type="primary", use_container_width=True)
 
     if submit_plan or "planning_result" not in st.session_state:
         plan_result = calculate_project_plan(
@@ -708,7 +707,7 @@ with tab_planning:
     f4.metric("Steel Required (Fe 500D)", f"{mat['steel']['metric_tonnes']} MT", f"{mat['steel']['quintals']} Quintals")
 
     # Milestone Progress Bar
-    st.markdown(f"#### 🚩 Construction Milestone: **{milestone['current_stage']}**")
+    st.markdown(f"#### Construction Milestone: **{milestone['current_stage']}**")
     st.progress(milestone["completion_percent"] / 100.0, text=f"{milestone['completion_percent']}% Physical Completion")
     st.caption(f"**Stage Focus:** {milestone['stage_description']}")
 
@@ -720,13 +719,13 @@ with tab_planning:
         st.plotly_chart(create_trade_pie_chart(plan), use_container_width=True)
 
     # Detailed Material Metrics
-    st.markdown("### 🧱 Structural Material Consumption (CPWD / IS Benchmarks)")
+    st.markdown("### Structural Material Consumption (CPWD / IS Benchmarks)")
     m_col1, m_col2 = st.columns(2)
     with m_col1:
         st.markdown(
             f"""
             <div class="audit-card">
-                <h4>🔩 TMT Steel Rebar (Fe 500D)</h4>
+                <h4>TMT Steel Rebar (Fe 500D)</h4>
                 <p><b>Total Weight:</b> {mat['steel']['kilograms']:,} kg (<b>{mat['steel']['metric_tonnes']} Metric Tonnes</b> / {mat['steel']['quintals']} Quintals)</p>
                 <p><b>Structural Consumption Norm:</b> {mat['steel']['norm_reference']}</p>
                 <p style="font-size: 0.85rem; color: #94a3b8;">Compliant with IS 1786 and IS 13920 ductile seismic detailing requirements.</p>
@@ -738,7 +737,7 @@ with tab_planning:
         st.markdown(
             f"""
             <div class="audit-card">
-                <h4>🏗️ Cement Requirements (OPC 53 / PPC)</h4>
+                <h4>Cement Requirements (OPC 53 / PPC)</h4>
                 <p><b>Total Bags:</b> {mat['cement']['standard_bags_50kg']:,} standard 50-kg bags (<b>{mat['cement']['metric_tonnes']} Metric Tonnes</b>)</p>
                 <p><b>CPWD Consumption Norm:</b> {mat['cement']['norm_reference']}</p>
                 <p style="font-size: 0.85rem; color: #94a3b8;">Calibrated for M25/M30 structural RCC elements and plastering mortars.</p>
@@ -751,7 +750,7 @@ with tab_planning:
     # CONCEPTUAL 3D ARCHITECTURAL RENDERING (POLLINATIONS AI / FLUX)
     # -------------------------------------------------------------
     st.markdown("---")
-    st.markdown("### 🎨 Conceptual 3D Architectural Rendering (Pollinations AI / Flux Engine)")
+    st.markdown("### Conceptual 3D Architectural Rendering (Pollinations AI / Flux Engine)")
     st.markdown(
         "Synthesize high-fidelity photorealistic architectural concept visualizations directly "
         "derived from your project's structural type, built-up area, and finish specifications."
@@ -776,7 +775,7 @@ with tab_planning:
 
     st.text_area("Generated Photorealistic 3D Concept Prompt:", value=generated_prompt, height=90)
 
-    render_btn = st.button("🚀 Generate 3D Concept Render (Pollinations AI Live)", type="primary")
+    render_btn = st.button("Generate 3D Concept Render (Pollinations AI Live)", type="primary")
 
     if render_btn or "rendered_3d_image" in st.session_state:
         if render_btn:
@@ -794,9 +793,9 @@ with tab_planning:
             st.image(rendered_img, caption="Photorealistic 3D Conceptual Render · Pollinations AI (Flux)", use_container_width=True)
             col_d1, col_d2 = st.columns([1, 1])
             with col_d1:
-                st.success("✓ 3D Conceptual Architectural Render successfully synthesized.")
+                st.success("3D Conceptual Architectural Render successfully synthesized.")
             with col_d2:
-                st.markdown(f"[🔗 Open Direct High-Res Image URL]({render_url})")
+                st.markdown(f"[Open Direct High-Res Image URL]({render_url})")
         elif render_url:
             st.image(render_url, caption="Photorealistic 3D Conceptual Render · Pollinations AI (Flux)", use_container_width=True)
             if render_err:
@@ -806,7 +805,7 @@ with tab_planning:
     with col_dl:
         export_json_button(plan, f"construction_planning_estimate_{PLATFORM_ID}.json")
     with col_raw:
-        with st.expander("🔍 View Raw JSON Contract (Epic 4)", expanded=False):
+        with st.expander("View Raw JSON Contract (Epic 4)", expanded=False):
             st.json(plan)
 
 
@@ -814,13 +813,13 @@ with tab_planning:
 # TAB 4: DAILY SITE ASSISTANT & WEATHER ADVISORY (EPIC 5)
 # =============================================================
 with tab_weather:
-    st.subheader("🌦️ Daily Site Assistant & Weather-Aware Safety Advisory")
+    st.subheader("Daily Site Assistant & Weather-Aware Safety Advisory")
     st.markdown(
         "Real-time dynamic engineering protocols responding to hazardous climatic shifts, "
         "paired with an interactive multi-turn construction engineering assistant."
     )
 
-    st.markdown("### 🌤️ Weather Condition Selector & Dynamic Engineering Protocols")
+    st.markdown("### Weather Condition Selector & Dynamic Engineering Protocols")
     selected_weather = st.selectbox(
         "Current Site Meteorological Condition:",
         list(WEATHER_PROTOCOLS.keys()),
@@ -837,7 +836,7 @@ with tab_weather:
         st.markdown(
             f"""
             <div class="audit-card">
-                <h4>🏗️ Tower Crane & Suspended Lifting Protocol</h4>
+                <h4>Tower Crane & Suspended Lifting Protocol</h4>
                 <p>{proto['crane_status']}</p>
             </div>
             """,
@@ -846,7 +845,7 @@ with tab_weather:
         st.markdown(
             f"""
             <div class="audit-card">
-                <h4>⚡ Temporary Electrical & Dewatering Safeguards</h4>
+                <h4>Temporary Electrical & Dewatering Safeguards</h4>
                 <p>{proto['electrical_status']}</p>
             </div>
             """,
@@ -857,7 +856,7 @@ with tab_weather:
         st.markdown(
             f"""
             <div class="audit-card">
-                <h4>🧊 Concrete Pouring & Curing Protocol (IS 456 / ACI 305R)</h4>
+                <h4>Concrete Pouring & Curing Protocol (IS 456 / ACI 305R)</h4>
                 <p>{proto['concrete_protocol']}</p>
             </div>
             """,
@@ -866,20 +865,20 @@ with tab_weather:
         st.markdown(
             f"""
             <div class="audit-card">
-                <h4>👷 Workforce Hydration & Shift Ergonomics</h4>
+                <h4>Workforce Hydration & Shift Ergonomics</h4>
                 <p>{proto['workforce_guidelines']}</p>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-    st.info(f"📌 **Daily Site Directive:** {proto['special_instructions']}")
+    st.info(f"**Daily Site Directive:** {proto['special_instructions']}")
 
     # -------------------------------------------------------------
     # MULTI-TURN CONSTRUCTION ENGINEERING ASSISTANT CHATBOT
     # -------------------------------------------------------------
     st.markdown("---")
-    st.markdown("### 💬 Interactive Construction Engineering Assistant")
+    st.markdown("### Interactive Construction Engineering Assistant")
     st.markdown(
         "Ask queries regarding IS 456 concrete curing, OSHA excavation benching, tower crane wind thresholds, "
         "formwork stripping periods, or rebar seismic detailing (Fe 500D vs Fe 500)."
@@ -891,7 +890,7 @@ with tab_weather:
             {
                 "role": "assistant",
                 "content": (
-                    "👋 **Hello Site Engineer!** I am your Multimodal Construction Intelligence Assistant.\n\n"
+                    "**Hello Site Engineer!** I am your Multimodal Construction Intelligence Assistant.\n\n"
                     "I can answer technical questions regarding IS 456:2000, OSHA 1926 regulations, concrete slump testing, "
                     "rebar grade specifications, crane safety limits, and crack remediation protocols. How can I assist today?"
                 ),
@@ -902,13 +901,13 @@ with tab_weather:
     st.markdown("**Suggested Engineering Queries:**")
     q_col1, q_col2, q_col3, q_col4 = st.columns(4)
     suggested_q = None
-    if q_col1.button("💧 IS 456 Curing Times", use_container_width=True):
+    if q_col1.button("IS 456 Curing Times", use_container_width=True):
         suggested_q = "What is the minimum concrete curing duration under IS 456 for OPC vs PPC?"
-    if q_col2.button("⏱️ Formwork Stripping Days", use_container_width=True):
+    if q_col2.button("Formwork Stripping Days", use_container_width=True):
         suggested_q = "What are the minimum formwork stripping times for slabs, beams, and columns under IS 456?"
-    if q_col3.button("💨 Tower Crane Wind Limit", use_container_width=True):
+    if q_col3.button("Tower Crane Wind Limit", use_container_width=True):
         suggested_q = "At what wind speed must tower crane operations be halted under OSHA and IS codes?"
-    if q_col4.button("🔩 Fe 500 vs Fe 500D Rebar", use_container_width=True):
+    if q_col4.button("Fe 500 vs Fe 500D Rebar", use_container_width=True):
         suggested_q = "Why is Fe 500D mandated over Fe 500 for seismic ductile detailing in IS 13920?"
 
     # Display Chat History
@@ -936,7 +935,7 @@ with tab_weather:
         with st.chat_message("assistant"):
             st.markdown(reply)
 
-    if st.button("🗑️ Clear Conversation"):
+    if st.button("Clear Conversation"):
         st.session_state["chat_messages"] = []
         st.rerun()
 
@@ -945,13 +944,13 @@ with tab_weather:
 # TAB 5: ARCHITECTURE & SYSTEM BLUEPRINT (EPIC 1 & 6)
 # =============================================================
 with tab_architecture:
-    st.subheader("🏛️ Architecture, Epics Breakdown & Data Contracts")
+    st.subheader("Architecture, Epics Breakdown & Data Contracts")
     st.markdown(
         "Complete technical architectural blueprint, Kanban Epics mapping, "
         "and production verification checklist for the Multimodal Construction Intelligence Platform."
     )
 
-    st.markdown("### 🗺️ System Architecture Flow")
+    st.markdown("### System Architecture Flow")
     st.markdown(
         """
         ```mermaid
@@ -972,19 +971,19 @@ with tab_architecture:
         """
     )
 
-    st.markdown("### 📋 Epics Implementation Matrix")
+    st.markdown("### Epics Implementation Matrix")
     epics_table = [
-        {"Epic": "Pre-requisites", "Scope": "Python 3.9+, Streamlit, FastAPI-ready modular structure", "Status": "Completed ✓"},
-        {"Epic": "Epic 1", "Scope": "Requirements & Env, Pytest unit tests, .env configuration", "Status": "Completed ✓"},
-        {"Epic": "Epic 2", "Scope": "PPE Safety Vision & Crack Diagnostics (OSHA 1926 & IS 456)", "Status": "Completed ✓"},
-        {"Epic": "Epic 3", "Scope": "Project Planning & Real Estate Valuation in INR (Lakhs & Crores)", "Status": "Completed ✓"},
-        {"Epic": "Epic 4", "Scope": "Multimodal AI & Strict JSON Contracts (Exportable & Validated)", "Status": "Completed ✓"},
-        {"Epic": "Epic 5", "Scope": "Site Chatbot & Weather Advisory Protocols (Wind, Rain, Heat)", "Status": "Completed ✓"},
-        {"Epic": "Epic 6", "Scope": "High-Tech CSS Theme, 1-Click Streamlit Cloud Deploy Readiness", "Status": "Completed ✓"},
+        {"Epic": "Pre-requisites", "Scope": "Python 3.9+, Streamlit, FastAPI-ready modular structure", "Status": "Completed"},
+        {"Epic": "Epic 1", "Scope": "Requirements & Env, Pytest unit tests, .env configuration", "Status": "Completed"},
+        {"Epic": "Epic 2", "Scope": "PPE Safety Vision & Crack Diagnostics (OSHA 1926 & IS 456)", "Status": "Completed"},
+        {"Epic": "Epic 3", "Scope": "Project Planning & Real Estate Valuation in INR (Lakhs & Crores)", "Status": "Completed"},
+        {"Epic": "Epic 4", "Scope": "Multimodal AI & Strict JSON Contracts (Exportable & Validated)", "Status": "Completed"},
+        {"Epic": "Epic 5", "Scope": "Site Chatbot & Weather Advisory Protocols (Wind, Rain, Heat)", "Status": "Completed"},
+        {"Epic": "Epic 6", "Scope": "High-Tech CSS Theme, 1-Click Streamlit Cloud Deploy Readiness", "Status": "Completed"},
     ]
     st.dataframe(pd.DataFrame(epics_table), use_container_width=True, hide_index=True)
 
-    st.markdown("### 📄 Platform Metadata")
+    st.markdown("### Platform Metadata")
     st.code(
         f"""Platform Title: Multimodal Construction Intelligence Platform
 Capstone Project: Skill Wallet Project 1
